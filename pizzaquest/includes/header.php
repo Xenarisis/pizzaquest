@@ -4,9 +4,6 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="/docs/4.1/assets/img/favicons/favicon.ico">
 
     <title><?php if(isset($title)) { echo $title; } else { echo 'Mypizza'; } ?></title>
 
@@ -16,15 +13,19 @@
 
   <body>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-black">
-      <!-- <a class="navbar-brand" href="#"></a> -->
+    <nav class="navbar bg-black">
+        <div class="container-fluid">
+           <a class="navbar-brand" href="#">Hello</a>
 
-        <ul class="navbar-nav m-auto">
-            <?php nav_items('pages/accueil.php', 'Acceuil'); ?>
-            <?php nav_items('pages/menu.php', 'Menus'); ?>
-            <?php nav_items('pages/nous.php', 'A propos de nous'); ?>
-        </ul>
-        <ul class="navbar-nav ml-auto"> <?php nav_items('pages/panier.php', 'Panier'); ?> </ul>
+           <div class="collapse navbar-collapse">
+                <ul class="navbar-nav m-auto">
+                    <?php nav_items('pages/accueil.php', 'Acceuil');?>
+                    <?php nav_items('pages/menu.php', 'Menus');?>
+                    <?php nav_items('pages/nous.php', 'A propos de nous');?>
+                    <?php nav_items('pages/panier.php', 'Panier');?>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <main role="main" class="container">

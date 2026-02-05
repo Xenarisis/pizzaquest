@@ -1,4 +1,4 @@
-<?php require_once 'src/helpers.php'; ?>
+<?php require 'src/helpers.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,19 +13,25 @@
 
   <body>
 
-    <nav class="navbar bg-black">
-        <div class="container-fluid">
-           <a class="navbar-brand" href="#">Hello</a>
+    <div class="container-fluid">
+            <header>
+                 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>   
+                    </button>
 
-           <div class="collapse navbar-collapse">
-                <ul class="navbar-nav m-auto">
-                    <?php nav_items('pages/accueil.php', 'Acceuil');?>
-                    <?php nav_items('pages/menu.php', 'Menus');?>
-                    <?php nav_items('pages/nous.php', 'A propos de nous');?>
-                    <?php nav_items('pages/panier.php', 'Panier');?>
-                </ul>
-            </div>
-        </div>
-    </nav>
+                        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                            <ul class="navbar-nav m-auto px-2">
+                                <li class="nav-item"><a class="nav-link" href="#">Sur place</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">A emporter</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Par livraison</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#">Telephone</a></li>
+                            </ul>
+                        </div>
+                </nav>
+
+                <?php require 'nav.php'; ?>
+            </header>
+    </div>
 
     <main role="main" class="container">

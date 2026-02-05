@@ -1,5 +1,3 @@
-<?php 
-$title = 'acceuil';
-require 'includes/header.php';
-require 'includes/footer.php';
-?>
+<?php $title = 'acceuil'; ?>
+<?php require 'includes/header.php'; ?>
+<?php require 'includes/footer.php'; ?>

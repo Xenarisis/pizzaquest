@@ -1,16 +1,20 @@
 </main>
 
-     <div class="b-example-divider"></div>
-    <div class="container">
+    <div class="container-fluid">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-            <div class="col-md-4 d-flex align-items-center">
-                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1" aria-label="Bootstrap">
-                    <svg class="bi" width="30" height="24" aria-hidden="true">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-                <span class="mb-3 mb-md-0 text-body-secondary"> All for one pizza</span> 
-            </div>
+            <p class="col-md-4 mb-0 text-body-secondary"><strong>All for one pizza</strong></p>
+            <!-- <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none" aria-label="Bootstrap">
+                <svg class="bi me-2" width="40" height="32" aria-hidden="true">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+            </a> -->
+
+            <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="pages/accueil.php">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="pages/menu.php">Menus</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="pages/nous.php">A propos de nous</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="pages/panier.php">Panier</a></li>
+            </ul>
         </footer>
     </div>
 

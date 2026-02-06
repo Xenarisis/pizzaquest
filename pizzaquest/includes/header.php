@@ -1,4 +1,3 @@
-<?php require 'src/helpers.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,27 +10,25 @@
 
   </head>
 
-  <body>
+  <body style="background-color: #f0cc6b;">
 
-    <div class="container-fluid">
-            <header>
-                 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>   
-                    </button>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #d0a01a;">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>   
+            </button>
 
-                        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                            <ul class="navbar-nav m-auto px-2">
-                                <li class="nav-item"><a class="nav-link" href="#">Sur place</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">A emporter</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Par livraison</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#">Telephone</a></li>
-                            </ul>
-                        </div>
-                </nav>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Sur place</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">A emporter</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Par livraison</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Telephone</a></li>
+                </ul>
+            </div>
+        </nav>
 
-                <?php require 'nav.php'; ?>
-            </header>
-    </div>
+        <?php require 'nav.php'; ?>
+    </header>
 
     <main role="main" class="container">

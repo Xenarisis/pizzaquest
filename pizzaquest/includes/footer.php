@@ -2,13 +2,12 @@
 
     <div class="container-fluid">
         <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top border-dark">
-            <p class="col-md-4 mb-0 text-body-secondary"><strong>Marco</strong></p>
+            <p class="col-md-4 mb-0 text-body-secondary"&copy><strong>chez Marco 2025</strong></p>
 
             <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="accueil.php">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="menu.php">Menus</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="nous.php">A propos de nous</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="panier.php">Panier</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/pages/accueil.php">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/pages/menu.php">Menus</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/pages/nous.php">A propos de nous</a></li>
             </ul>
         </footer>
     </div>

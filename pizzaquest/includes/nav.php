@@ -6,10 +6,9 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav m-auto px-2">
-            <li class="nav-item"><a class="nav-link" href="acceuil.php">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="menu.php">Menu</a></li>
-            <li class="nav-item"><a class="nav-link" href="nous.php">A propos de nous</a></li>
-            <li class="nav-item"><a class="nav-link" href="panier.php">Panier</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pages/acceuil.php">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pages/menu.php">Menu</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pages/nous.php">A propos de nous</a></li>
         </ul>
     </div>
 </nav>

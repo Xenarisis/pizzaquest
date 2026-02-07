@@ -1,6 +1,8 @@
 <?php 
+define('ROOT', dirname(__DIR__));
 $title = 'acceuil'; 
 require_once ROOT . '/includes/header.php';
+require_once ROOT . '/src/helpers.php';
 ?>
 <div class="container-fluid ">
     <div class="container-fluid align-items-center p-5">
@@ -15,30 +17,15 @@ require_once ROOT . '/includes/header.php';
     </div>
     <div class="row p-5">
         <h2><strong>Les pizzas du moment</strong></h2>
-        <div class="container-fluid align-items-center col-lg-4">
-            <div class="card" style="width: 1p;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Pizza ...</p>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid align-items-center col-lg-4">
-            <div class="card" style="width: 1p;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Pizza ...</p>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid align-items-center col-lg-4">
-            <div class="card" style="width: 1p;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <p class="card-text">Pizza ...</p>
-                </div>
-            </div>
-        </div>
+        <?php $moment_pizza = array(
+            0 => "chevre miel",
+            1 => "chorizo",
+            2 => "4 fromages"
+        );
+
+        foreach($moment_pizza as $value) {
+            echo show_pizza($value);
+        } ?>
     </div>
     <div class="container-fluid align-items-center p-5">
         <h2><strong>À propos de nous</strong></h2>

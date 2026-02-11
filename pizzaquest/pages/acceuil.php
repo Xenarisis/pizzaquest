@@ -17,14 +17,15 @@ require_once ROOT . '/src/helpers.php';
     </div>
     <div class="row p-5">
         <h2><strong>Les pizzas du moment</strong></h2>
-        <?php $moment_pizza = array(
-            0 => "chevre miel",
-            1 => "chorizo",
-            2 => "4 fromages"
-        );
+        <?php $index = 0;
 
-        foreach($moment_pizza as $value) {
-            echo show_pizza($value);
+        foreach($all_pizzas as $value) {
+            if($index >= 3) {
+                break;
+            } else {
+                echo show_pizza($value);
+                $index++;
+            }
         } ?>
     </div>
     <div class="container-fluid align-items-center p-5">

@@ -1,19 +1,45 @@
 <?php 
 
 $all_pizzas = array(
-    0 => "chèvre miel",
-    1 => "chorizo",
-    2 => "4 fromages",
-    3 => "truffes",
-    4 => "margarita",
-    5 => "l'ambroise",
-    6 => "montagnarde",
-    7 => "la speciale",
-    8 => "hawaienne",
-    9 => "peperoni",
-    10 => "francontoise",
-    11 => "hot piquante",
-    12 => "raquelette"
+    0 => array( 'name' => "chèvre miel",
+                'price' => "10 €"
+                ),
+    1 => array( 'name' => "chorizo",
+                'price' => "10 €"
+                ),
+    2 => array( 'name' => "4 fromages",
+                'price' => "10 €"
+                ),
+    3 => array( 'name' => "truffes",
+                'price' => "10 €"
+                ),
+    4 => array( 'name' => "margarita",
+                'price' => "10 €"
+                ),
+    5 => array( 'name' => "l'ambroise",
+                'price' => "10 €"
+                ),
+    6 => array( 'name' => "montagnarde",
+                'price' => "10 €"
+                ),
+    7 => array( 'name' => "la speciale",
+                'price' => "10 €"
+                ),
+    8 => array( 'name' => "hawaienne",
+                'price' => "10 €"
+                ),
+    9 => array( 'name' => "peperoni",
+                'price' => "10 €"
+                ),
+    10 => array( 'name' => "francontoise",
+                'price' => "10 €"
+                ),
+    11 => array( 'name' => "hot piquante",
+                'price' => "10 €"
+                ),
+    12 => array( 'name' => "raquelette",
+                'price' => "10 €"
+                )
 );
 
 ?>

@@ -10,5 +10,8 @@
             <li class="nav-item"><a class="nav-link" href="/pages/menu.php">Menu</a></li>
             <li class="nav-item"><a class="nav-link" href="/pages/nous.php">A propos de nous</a></li>
         </ul>
+        <ul class="justify-content-end">
+            <li class="nav-item"><a class="nav-link" href="/pages/command.php">commande</a></li>
+        </ul>
     </div>
 </nav>

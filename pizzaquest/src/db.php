@@ -42,4 +42,6 @@ $all_pizzas = array(
                 )
 );
 
+$command_pizza = array(null);
+
 ?>

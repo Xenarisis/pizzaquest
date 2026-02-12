@@ -31,6 +31,20 @@ HTML;
 HTML;
     }
 
+    function checkbox_pizza(array $pizza) {
+        return <<<HTML
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">$pizza[name]</label>
+        </div>
+HTML;
+    }
+
+    function check_pizza(array $pizza, $key, $n) {
+        $command_pizza[$key] = $all_pizzas[$key];
+        $command_pizza[$key]['nbr'] .= $n;
+    }
+
     function add_pizza(string $pizza, string $pizza_price) {
         $all_pizzas[] = array(
             'name' => $pizza,

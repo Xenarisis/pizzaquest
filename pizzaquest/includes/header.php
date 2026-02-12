@@ -13,21 +13,6 @@
   <body style="background-color: #f0cc6b;">
 
     <header>
-        <nav class="navbar navbar-expand-md navbar-light" style="background-color: #d0a01a;">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>   
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav m-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">Sur place</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">A emporter</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Par livraison</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Telephone</a></li>
-                </ul>
-            </div>
-        </nav>
-
         <?php require 'nav.php'; ?>
     </header>
 

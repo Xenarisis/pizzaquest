@@ -39,6 +39,12 @@ $all_pizzas = array(
                 ),
     12 => array( 'name' => "raquelette",
                 'price' => "10 €"
+                ),
+    13 => array( 'name' => "reine",
+                'price' => "10 €"
+                ),
+    14 => array( 'name' => "graouuh",
+                'price' => "10,99 €"
                 )
 );
 

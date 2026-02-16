@@ -1,5 +1,5 @@
 <?php 
-    require ROOT.'/src/db.php';
+    require_once ROOT .'/src/db.php';
 
     function e($value) {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -50,24 +50,24 @@ HTML;
                         class="form-check-input" 
                         type="checkbox" 
                         name="pizzas[]" 
-                        value="<?= $pizza[id] ?>"
-                        id="pizza_<?= $pizza[id] ?>"
+                        value="$pizza[name]"
+                        id="pizza_$pizza[id]"
                     >
-                    <label class="form-check-label" for="pizza_<?= $pizza[id] ?>">
+                    <label class="form-check-label" for="pizza_$pizza[id]">
                         <strong>$pizza[name]</strong> 
                         - $pizza[price]
                     </label>
                 </div>
             </div>
             <div class="col-md-3">
-                <label for="qte_<?= $pizza[id] ?>" class="form-label">Quantité</label>
+                <label for="qte_$pizza[id]" class="form-label">Quantité</label>
                 <input 
                     type="number" 
                     class="form-control" 
-                    name="quantites[<?= $pizza[id] ?>]"
-                    id="qte_<?= $pizza[id] ?>"
+                    name="quantites[$pizza[id]]"
+                    id="qte_$pizza[id] "
                     min="0" 
-                    value="<?= $$pizza[id] ?? 0 ?>"
+                    value=" $$pizza[id] ?? 0 "
                 >
             </div>
         </div>
@@ -89,7 +89,7 @@ HTML;
                             class="form-control" 
                             id="nom" 
                             name="nom" 
-                            value="$user[lastname]"
+                            value=""
                             required
                         >
                     </div>
@@ -100,7 +100,7 @@ HTML;
                             class="form-control" 
                             id="prenom" 
                             name="prenom"
-                            value="$user[firstname]"
+                            value=""
                             required
                         >
                     </div>
@@ -113,7 +113,7 @@ HTML;
                         class="form-control" 
                         id="email" 
                         name="email"
-                        value="$user[email]"
+                        value=""
                         required
                     >
                 </div>
@@ -152,4 +152,12 @@ HTML;
             'price' => $pizza_price.' €'
             );
     };
+
+    function find_pizza($pizza, $all_pizzas) {
+        foreach ($all_pizzas as $value) {
+            if($value['name'] == $pizza) {
+                return $value;
+            }
+        }
+    }
 ?>

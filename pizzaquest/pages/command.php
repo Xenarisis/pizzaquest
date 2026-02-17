@@ -8,7 +8,7 @@ $user = array(
     'lastname' => 'nom',
     'email' => 'email',
     'adresse' => 'Votre adresse',
-    'phone' => '+** ********'
+    'phone' => '** ** ** ** **'
 );
 ?>
 

@@ -6,11 +6,11 @@
     $var = $_POST;
     print_r($var);
 
-    if($var['pizzas'] == null) {
+    if($var['pizzas'] == null || $var['livraison'] == null || $var['phone'] == '** ** ** ** **') {
         redirect('/pages/command.php');
     }
 
-    if($var['livraison'] == null) {
+    if($var['livraison'] == 'domicile' && $var['adresse'] == 'Votre adresse') {
         redirect('/pages/command.php');
     }
 

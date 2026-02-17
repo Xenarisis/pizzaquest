@@ -7,8 +7,8 @@ $user = array(
     'firstname' => 'prénom',
     'lastname' => 'nom',
     'email' => 'email',
-    'adresse' => 'adresse',
-    'phone' => 'téléphone'
+    'adresse' => 'Votre adresse',
+    'phone' => '+** ********'
 );
 ?>
 
@@ -41,7 +41,7 @@ $user = array(
                     <input 
                         class="form-check-input" 
                         type="radio" 
-                        name="Sur_place" 
+                        name="livraison" 
                         value="Sur_place" 
                         id="Sur_place"
                     >

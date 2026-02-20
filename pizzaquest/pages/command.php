@@ -3,13 +3,13 @@ $title = 'Passer commande';
 require_once ROOT . '/includes/header.php';
 require_once ROOT . '/src/helpers.php';
 
-$user = array(
-    'firstname' => 'prénom',
-    'lastname' => 'nom',
-    'email' => 'email',
-    'adresse' => 'Votre adresse',
-    'phone' => '** ** ** ** **'
-);
+$user = $_SESSION['user'] ?? array(
+            'firstname' => 'prénom',
+            'lastname' => 'nom',
+            'email' => 'email',
+            'adresse' => 'Votre adresse',
+            'phone' => '** ** ** ** **'
+        );
 ?>
 
 <div class="container my-5">
@@ -28,11 +28,11 @@ $user = array(
             </div>
         </div>
 
-        <div class="card mb-4">
+        <div class="card bg-warning bg-opacity-25 mb-4">
             <?= user_info($user);?>
         </div>
 
-        <div class="card mb-4">
+        <div class="card bg-warning bg-opacity-25 mb-4">
             <div class="card-header">
                 <h3>Mode de commande </h3>
             </div>

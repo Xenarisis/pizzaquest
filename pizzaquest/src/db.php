@@ -63,4 +63,14 @@ $all_pizzas = array(
                 )
 );
 
+$Users = array(
+    0 => array( 'id' => "0",
+                'firstname' => 'admin',
+                'lastname' => 'admin',
+                'email' => 'admin',
+                'adresse' => 'admin',
+                'phone' => 'admin'
+                )
+);
+
 ?>

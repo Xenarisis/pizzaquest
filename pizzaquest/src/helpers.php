@@ -27,13 +27,13 @@ HTML;
 
         return <<<HTML
         <div class="container-fluid align-items-center col-lg-4">
-            <div class="card" style="width: 1p;">
+            <div class="card bg-warning bg-opacity-25" style="width: 1p;">
                 <img src="https://media.istockphoto.com/id/1493116898/fr/photo/pizza-italienne-napoletana-dans-la-cuisine-en-désordre-avec-des-ingrédients-de-cuisson.jpg?s=2048x2048&w=is&k=20&c=kKsrs7aJrRVo2LQzGqlHQcDTQGK6EsmV5wdcDs3RaqM=" class="card-img-top" alt="pizza">
                 <div class="card-body justify-content-center">
-                    <p class="card-text">$pizza[name]</p>
-                    <p class="card-text">$pizza[price]</p>
+                    <p class="card-text m-auto">- $pizza[name]</p>
+                    <p class="card-text m-auto">- $pizza[price]</p>
                     <p>
-                        <a class="btn btn-info" href="/pages/detailspizza.php?data=$data">View details &raquo</a>
+                        <a class="btn btn-secondary" href="/pages/detailspizza.php?data=$data">View details &raquo</a>
                     </p>
                 </div>
             </div>
@@ -76,7 +76,6 @@ HTML;
 
     function user_info(array $user) {
         return <<<HTML
-        <div class="card mb-4">
             <div class="card-header">
                 <h3>Vos informations</h3>
             </div>
@@ -141,7 +140,6 @@ HTML;
                     >$user[adresse]</textarea>
                 </div>
             </div>
-        </div>
 HTML;
     }
 
@@ -159,5 +157,23 @@ HTML;
                 return $value;
             }
         }
+    }
+
+    function find_user($email, $users) {
+        foreach ($users as $value) {
+            if($value['email'] == $email) {
+                return $value;
+            }
+        }
+    }
+
+    function add_user(array $user) {
+        $Users[] = array(
+            'firstname' => $user['firstname'],
+            'lastname' => $user['lastname'],
+            'email' => $user['email'],
+            'adresse' => $user['adresse'],
+            'phone' => $user['phone']
+        );
     }
 ?>

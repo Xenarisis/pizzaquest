@@ -12,8 +12,6 @@
 
   <body style="background-color: #f0cc6b;">
 
-    <header>
-        <?php require 'nav.php'; ?>
-    </header>
+  <?php require 'nav.php'; ?>
 
-    <main role="main" class="container">
+  <main role="main" class="container">

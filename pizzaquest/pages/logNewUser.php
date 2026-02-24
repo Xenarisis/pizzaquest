@@ -1,10 +1,11 @@
 <?php
 define('ROOT', dirname(__DIR__));
-$title = 'command success'; 
+$title = 'Inscription'; 
 require_once ROOT . '/includes/header.php';
 require_once ROOT . '/src/helpers.php';
 
 $user = $_SESSION['user'] ?? array(
+                'id' => uniqid(),
                 'firstname' => 'prénom',
                 'lastname' => 'nom',
                 'email' => 'email',
@@ -20,11 +21,9 @@ $user = $_SESSION['user'] ?? array(
         <div class="card bg-warning bg-opacity-25 mb-4">
             <?= user_info($user);?>
         </div>
-
         <button type="submit" class="btn btn-secondary btn-lg">
             Valider vos informations
         </button>
-
     </form>
 </div>
 

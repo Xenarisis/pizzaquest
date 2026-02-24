@@ -4,6 +4,7 @@ require_once ROOT . '/includes/header.php';
 require_once ROOT . '/src/helpers.php';
 
 $user = $_SESSION['user'] ?? array(
+            'id' => uniqid(),
             'firstname' => 'prénom',
             'lastname' => 'nom',
             'email' => 'email',

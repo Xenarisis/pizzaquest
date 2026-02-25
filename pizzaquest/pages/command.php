@@ -5,13 +5,23 @@ require_once ROOT . '/src/helpers.php';
 
 $user = $_SESSION['user'] ?? array(
             'id' => uniqid(),
-            'firstname' => 'prénom',
-            'lastname' => 'nom',
-            'email' => 'email',
-            'adresse' => 'Votre adresse',
-            'phone' => '** ** ** ** **'
+            'firstname' => null,
+            'lastname' => null,
+            'email' => null,
+            'password' => null,
+            'adresse' => null,
+            'phone' => null
         );
 ?>
+
+<div class="container my-5">
+    <?php if(isset($_SESSION['error'])): ?>
+        <div class="alert alert-danger" role="alert">
+            <?= $_SESSION['error']; ?>
+        </div>
+        <?php unset($_SESSION['error']); ?>
+    <?php endif; ?>
+</div>
 
 <div class="container my-5">
     <h1>Passer une commande</h1>

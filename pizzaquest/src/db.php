@@ -67,7 +67,8 @@ $Users = array(
     0 => array( 'id' => "0",
                 'firstname' => 'admin',
                 'lastname' => 'admin',
-                'email' => 'admin',
+                'email' => 'admin@admin',
+                'password' => 'admin',
                 'adresse' => 'admin',
                 'phone' => 'admin'
                 )

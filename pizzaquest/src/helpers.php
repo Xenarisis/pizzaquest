@@ -74,7 +74,22 @@ HTML;
 HTML;
     }
 
-    function user_info(array $user) {
+
+    function user_info(array $user, $is_new_user = false) {
+        $password_part = $is_new_user ? '
+                <div class="mb-3">
+                    <label for="MDP" class="form-label">Mot de passe *</label>
+                    <input 
+                        type="text" 
+                        class="form-control" 
+                        id="MDP" 
+                        name="MDP" 
+                        value=""
+                        placeholder="Veuillez entrer votre mot de passe"
+                        required
+                    >
+                </div>' : '';
+
         return <<<HTML
             <div class="card-header">
                 <h3>Vos informations</h3>
@@ -88,7 +103,8 @@ HTML;
                             class="form-control" 
                             id="nom" 
                             name="nom" 
-                            value=""
+                            value="$user[lastname]"
+                            placeholder="Veuillez entrer votre nom"
                             required
                         >
                     </div>
@@ -99,7 +115,8 @@ HTML;
                             class="form-control" 
                             id="prenom" 
                             name="prenom"
-                            value=""
+                            value="$user[firstname]"
+                            placeholder="Veuillez entrer votre prénom"
                             required
                         >
                     </div>
@@ -112,10 +129,13 @@ HTML;
                         class="form-control" 
                         id="email" 
                         name="email"
-                        value=""
+                        value="$user[email]"
+                        placeholder="Veuillez entrer votre adresse email"
                         required
                     >
                 </div>
+
+                $password_part
 
                 <div class="mb-3">
                     <label for="telephone" class="form-label">Téléphone *</label>
@@ -125,6 +145,7 @@ HTML;
                         id="telephone" 
                         name="telephone"
                         value="$user[phone]"
+                        placeholder="Veuillez entrer votre numéro de téléphone"
                         required
                     >
                 </div>
@@ -136,6 +157,7 @@ HTML;
                         id="adresse" 
                         name="adresse" 
                         rows="3"
+                        placeholder="Veuillez entrer votre addresse"
                         required
                     >$user[adresse]</textarea>
                 </div>
@@ -159,16 +181,30 @@ HTML;
         }
     }
 
-    function find_user($email, $users) {
-        foreach ($users as $value) {
+    function connect_user($email, $password) {
+        $user = find_user($email);
+        if($user == null) {
+            return null;
+        }
+
+        if($user['password'] == $password) {
+            return $user;
+        }
+    }
+
+    function find_user($email) {
+        foreach ($Users as $value) {
             if($value['email'] == $email) {
                 return $value;
             }
         }
+
+        return null;
     }
 
     function add_user(array $user) {
         $Users[] = array(
+            'id' => $user['id'],
             'firstname' => $user['firstname'],
             'lastname' => $user['lastname'],
             'email' => $user['email'],

@@ -1,6 +1,11 @@
 <?php
 define('ROOT', dirname(__DIR__));
 $title = 'command success'; 
+
+if($_SESSION['success'] != true) {
+    header('Location: /pages/command.php');
+    exit();
+}
 require_once ROOT . '/includes/header.php';
 require_once ROOT . '/src/helpers.php';
 
@@ -13,6 +18,10 @@ require_once ROOT . '/src/helpers.php';
         <p class="mb-0">
             <a href="/pages/menu.php" class="btn btn-primary">Retour au menu</a>
         </p>
+        <h3>Votre commande</h3>
+        <?php foreach($_SESSION['command']['pizzas'] as $value) {
+            echo '<p>- ' . $value['name'] . '</p>';
+        } ?>
     </div>
 </div>
 

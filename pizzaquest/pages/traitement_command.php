@@ -4,13 +4,14 @@
     require_once ROOT . '/src/db.php';
 
     $var = $_POST;
-    print_r($var);
 
-    if($var['pizzas'] == null || $var['livraison'] == null || $var['phone'] == '** ** ** ** **') {
+    if($var['pizzas'] == null || $var['livraison'] == null || $var['phone'] == null) {
+        $_SESSION['error'] = 'Veuillez remplir tous les champs obligatoires';
         redirect('/pages/command.php');
     }
 
-    if($var['livraison'] == 'domicile' && $var['adresse'] == 'Votre adresse') {
+    if($var['livraison'] == 'domicile' && $var['adresse'] == null) {
+        $_SESSION['error'] = 'Veuillez remplir votre adresse pour une livraison à domicile';
         redirect('/pages/command.php');
     }
 
@@ -26,5 +27,13 @@
         }
     }
 
+    $_SESSION['command'] = array(
+        'pizzas' => $commanded_pizza,
+        'livraison' => $var['livraison'],
+        'adresse' => $var['adresse'],
+        'phone' => $var['phone']
+    );
+
+    $_SESSION['success'] = true;
     redirect('/pages/confirmation.php');
 ?>

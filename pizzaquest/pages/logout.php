@@ -1,6 +1,6 @@
 <?php
 define('ROOT', dirname(__DIR__));
-$title = 'command success'; 
+$title = 'Logout'; 
 require_once ROOT . '/includes/header.php';
 require_once ROOT . '/src/helpers.php';
 

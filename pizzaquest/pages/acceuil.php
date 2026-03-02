@@ -2,7 +2,7 @@
 define('ROOT', dirname(__DIR__));
 $title = 'acceuil'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/src/helpers.php';
+require_once ROOT . '/includes/bootstrap.php';
 ?>
 <div class="container-fluid ">
     <div class="container-fluid align-items-center p-5">
@@ -17,7 +17,12 @@ require_once ROOT . '/src/helpers.php';
     </div>
     <div class="row p-5">
         <h2><strong>Les pizzas du moment</strong></h2>
-        <?php $index = 0;
+        <?php 
+        $pdo = getDB();
+        $stmt = $pdo->query('SELECT * FROM pizzas');
+        $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $index = 0;
 
         foreach($all_pizzas as $value) {
             if($index >= 3) {

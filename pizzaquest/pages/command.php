@@ -1,17 +1,17 @@
 <?php define('ROOT', dirname(__DIR__));
 $title = 'Passer commande'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/src/helpers.php';
+require_once ROOT . '/includes/bootstrap.php';
 
-$user = $_SESSION['user'] ?? array(
-            'id' => uniqid(),
-            'firstname' => null,
-            'lastname' => null,
-            'email' => null,
-            'password' => null,
-            'adresse' => null,
-            'phone' => null
-        );
+$user = array(
+    'id' => $_SESSION['user_id'] ?? uniqid(),
+    'firstname' => $_SESSION['user_firstname'] ?? null,
+    'lastname' => $_SESSION['user_lastname'] ?? null,
+    'email' => $_SESSION['user_email'] ?? null,
+    'adress' => $_SESSION['user_adress'] ?? null,
+    'phone' => $_SESSION['user_phone'] ?? null
+)
+
 ?>
 
 <div class="container my-5">
@@ -32,7 +32,12 @@ $user = $_SESSION['user'] ?? array(
                 <h3>Choisissez vos pizzas</h3>
             </div>
             <div class="card-body">
-                <?php foreach ($all_pizzas as $pizza) {
+                <?php 
+                $pdo = getDB();
+                $stmt = $pdo->query('SELECT * FROM pizzas');
+                $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                
+                foreach ($all_pizzas as $pizza) {
                     echo checkbox_pizza($pizza);
                 }
                 ?>

@@ -1,12 +1,11 @@
 <?php 
 define('ROOT', dirname(__DIR__));
-require_once ROOT . '/src/helpers.php';
+require_once ROOT . '/includes/bootstrap.php';
 
 $NewUser = $_SESSION['newuser'] ?? false;
 
 if($NewUser) {
     $_SESSION['user'] = array(
-        'id' => uniqid(),
         'firstname' => $_POST['prenom'] ?? null,
         'lastname' => $_POST['nom'] ?? null,
         'email' => $_POST['email'] ?? null,
@@ -14,6 +13,8 @@ if($NewUser) {
         'adresse' => $_POST['adresse'] ?? null,
         'phone' => $_POST['phone'] ?? null
     );
+
+    register();
 
     redirect('/pages/profil.php');
 

@@ -1,5 +1,4 @@
 <?php define('ROOT', dirname(__DIR__));
-require_once ROOT . '/src/helpers.php';
 $title = 'profil'; 
 
 if (!isset($_SESSION['user'])):
@@ -8,6 +7,7 @@ if (!isset($_SESSION['user'])):
 endif;
 
 require_once ROOT . '/includes/header.php';
+require_once ROOT . '/includes/bootstrap.php';
 ?>
 
 <h1>Bienvenue sur votre profil</h1>

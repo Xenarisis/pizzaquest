@@ -2,7 +2,7 @@
 define('ROOT', dirname(__DIR__));
 $title = 'Login'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/src/helpers.php';
+require_once ROOT . '/includes/bootstrap.php';
 
 $_SESSION['newuser'] = false;
 ?>

@@ -1,6 +1,8 @@
 <?php define('ROOT', dirname(__DIR__));
 $title = 'A propos de nous'; 
-require_once ROOT . '/includes/header.php'; ?>
+require_once ROOT . '/includes/header.php';
+require_once ROOT . '/includes/bootstrap.php';
+?>
 
 <div class="container-fluid align-items-center p-5">
         <h1><strong><em>À propos de nous</em></strong></h1>

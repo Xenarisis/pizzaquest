@@ -7,7 +7,7 @@ if($_SESSION['success'] != true) {
     exit();
 }
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/src/helpers.php';
+require_once ROOT . '/includes/bootstrap.php';
 
 ?>
 

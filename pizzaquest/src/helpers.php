@@ -1,5 +1,6 @@
 <?php 
-    require_once ROOT .'/src/db.php';
+
+    session_start();
 
     function e($value) {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
@@ -28,7 +29,7 @@ HTML;
         return <<<HTML
         <div class="container-fluid align-items-center col-lg-4">
             <div class="card bg-warning bg-opacity-25" style="width: 1p;">
-                <img src="https://media.istockphoto.com/id/1493116898/fr/photo/pizza-italienne-napoletana-dans-la-cuisine-en-désordre-avec-des-ingrédients-de-cuisson.jpg?s=2048x2048&w=is&k=20&c=kKsrs7aJrRVo2LQzGqlHQcDTQGK6EsmV5wdcDs3RaqM=" class="card-img-top" alt="pizza">
+                <img src="$pizza[image]" class="card-img-top" alt="pizza">
                 <div class="card-body justify-content-center">
                     <p class="card-text m-auto">- $pizza[name]</p>
                     <p class="card-text m-auto">- $pizza[price]</p>
@@ -159,57 +160,27 @@ HTML;
                         rows="3"
                         placeholder="Veuillez entrer votre addresse"
                         required
-                    >$user[adresse]</textarea>
+                    >$user[adress]</textarea>
                 </div>
             </div>
 HTML;
     }
 
-    function add_pizza(string $pizza, string $pizza_price) {
-        $all_pizzas[] = array(
-            'id' => $pizza,
-            'name' => $pizza,
-            'price' => $pizza_price.' €'
-            );
-    };
+    // will add admin part later to add pizzas and etc
 
-    function find_pizza($pizza, $all_pizzas) {
-        foreach ($all_pizzas as $value) {
-            if($value['name'] == $pizza) {
-                return $value;
-            }
-        }
-    }
+    // function add_pizza(string $pizza, string $pizza_price) {
+    //     $all_pizzas[] = array(
+    //         'id' => $pizza,
+    //         'name' => $pizza,
+    //         'price' => $pizza_price.' €'
+    //         );
+    // };
 
-    function connect_user($email, $password) {
-        $user = find_user($email);
-        if($user == null) {
-            return null;
-        }
-
-        if($user['password'] == $password) {
-            return $user;
-        }
-    }
-
-    function find_user($email) {
-        foreach ($Users as $value) {
-            if($value['email'] == $email) {
-                return $value;
-            }
-        }
-
-        return null;
-    }
-
-    function add_user(array $user) {
-        $Users[] = array(
-            'id' => $user['id'],
-            'firstname' => $user['firstname'],
-            'lastname' => $user['lastname'],
-            'email' => $user['email'],
-            'adresse' => $user['adresse'],
-            'phone' => $user['phone']
-        );
-    }
+    // function find_pizza($pizza, $all_pizzas) {
+    //     foreach ($all_pizzas as $value) {
+    //         if($value['name'] == $pizza) {
+    //             return $value;
+    //         }
+    //     }
+    // }
 ?>

@@ -2,7 +2,7 @@
 define('ROOT', dirname(__DIR__));
 $title = 'Logout'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/src/helpers.php';
+require_once ROOT . '/includes/bootstrap.php';
 
 // some code after to disconnect the user of it's account
 ?>

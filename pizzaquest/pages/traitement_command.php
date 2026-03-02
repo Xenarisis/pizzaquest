@@ -1,7 +1,6 @@
 <?php 
     define('ROOT', dirname(__DIR__));
-    require_once ROOT . '/src/helpers.php';
-    require_once ROOT . '/src/db.php';
+    require_once ROOT . '/includes/bootstrap.php';
 
     $var = $_POST;
 

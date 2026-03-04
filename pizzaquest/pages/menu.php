@@ -1,7 +1,6 @@
 <?php define('ROOT', dirname(__DIR__));
 $title = 'menu'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/includes/bootstrap.php';
 ?>
 
 <div class="container-fluid align-items-center border-bottom border-dark p-4">

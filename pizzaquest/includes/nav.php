@@ -19,7 +19,7 @@
     </div>
     <div class="container-fluid d-flex justify-content-end me-5">
         <ul class="navbar-nav">
-            <?php if (!isset($_SESSION['user'])): ?>
+            <?php if (!isset($_SESSION['user_id'])): ?>
                 <li class="nav-item"><a class="nav-link" href="/pages/login.php">Login</a></li>
             <?php else: ?>
                 <li class="nav-item"><a class="nav-link" href="/pages/profil.php">Mon profil</a></li>

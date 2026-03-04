@@ -1,15 +1,14 @@
 <?php define('ROOT', dirname(__DIR__));
 $title = 'Passer commande'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/includes/bootstrap.php';
 
 $user = array(
-    'id' => $_SESSION['user_id'] ?? uniqid(),
-    'firstname' => $_SESSION['user_firstname'] ?? null,
-    'lastname' => $_SESSION['user_lastname'] ?? null,
-    'email' => $_SESSION['user_email'] ?? null,
-    'adress' => $_SESSION['user_adress'] ?? null,
-    'phone' => $_SESSION['user_phone'] ?? null
+    'id' => $_SESSION['user_id'] ?? null,
+    'firstname' => $_SESSION['user_firstname'] ?? '',
+    'lastname' => $_SESSION['user_lastname'] ?? '',
+    'email' => $_SESSION['user_email'] ?? '',
+    'adress' => $_SESSION['user_adress'] ?? '',
+    'phone' => $_SESSION['user_phone'] ?? ''
 )
 
 ?>
@@ -82,7 +81,7 @@ $user = array(
                         class="form-check-input" 
                         type="radio" 
                         name="livraison" 
-                        value="emporter" 
+                        value="emporter"
                         id="livraison_emporter"
                     >
                     <label class="form-check-label" for="livraison_emporter">

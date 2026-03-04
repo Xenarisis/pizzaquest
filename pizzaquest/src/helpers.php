@@ -1,7 +1,5 @@
 <?php 
 
-    session_start();
-
     function e($value) {
         return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
     }
@@ -50,12 +48,12 @@ HTML;
                     <input 
                         class="form-check-input" 
                         type="checkbox" 
-                        name="pizzas[]" 
-                        value="$pizza[name]"
+                        name="pizzas[]"
+                        value="$pizza[id]"
                         id="pizza_$pizza[id]"
                     >
                     <label class="form-check-label" for="pizza_$pizza[id]">
-                        <strong>$pizza[name]</strong> 
+                        <strong>$pizza[name]</strong>
                         - $pizza[price]
                     </label>
                 </div>
@@ -65,7 +63,7 @@ HTML;
                 <input 
                     type="number" 
                     class="form-control" 
-                    name="quantites[$pizza[id]]"
+                    name="quantities[$pizza[id]]"
                     id="qte_$pizza[id] "
                     min="0" 
                     value=" $$pizza[id] ?? 0 "
@@ -152,11 +150,11 @@ HTML;
                 </div>
 
                 <div class="mb-3">
-                    <label for="adresse" class="form-label">Adresse de livraison *</label>
+                    <label for="adress" class="form-label">Adresse de livraison *</label>
                     <textarea 
                         class="form-control" 
-                        id="adresse" 
-                        name="adresse" 
+                        id="adress" 
+                        name="adress" 
                         rows="3"
                         placeholder="Veuillez entrer votre addresse"
                         required
@@ -176,11 +174,11 @@ HTML;
     //         );
     // };
 
-    // function find_pizza($pizza, $all_pizzas) {
-    //     foreach ($all_pizzas as $value) {
-    //         if($value['name'] == $pizza) {
-    //             return $value;
-    //         }
-    //     }
-    // }
+    function find_pizza($pizza_id, $all_pizzas) {
+        foreach ($all_pizzas as $value) {
+            if($value["id"] == $pizza_id) {
+                return $value;
+            }
+        }
+    }
 ?>

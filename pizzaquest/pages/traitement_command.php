@@ -4,20 +4,27 @@
 
     $var = $_POST;
 
-    if($var['pizzas'] == null || $var['livraison'] == null || $var['phone'] == null) {
+    $pdo = getDB();
+    $stmt = $pdo->query('SELECT * FROM pizzas');
+    $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // var_dump($var['pizzas']);
+    // var_dump($var['quantities']);
+    // var_dump($_SESSION);
+    // exit;
+
+    if(!($var['pizzas'] || $var["livraison"] || $var['telephone'])) {
         $_SESSION['error'] = 'Veuillez remplir tous les champs obligatoires';
         redirect('/pages/command.php');
     }
 
-    if($var['livraison'] == 'domicile' && $var['adresse'] == null) {
+    if($var["livraison"] == "domicile" && !$var['adress']) {
         $_SESSION['error'] = 'Veuillez remplir votre adresse pour une livraison à domicile';
         redirect('/pages/command.php');
     }
 
-    $commanded_pizza = array(null);
-
     foreach ($var['pizzas'] as $value) {
-        $time = $var['quantites'][$value];
+        $time = $var['quantities'][$value];
         if($time == null || $time == 0) {
             $time = 1;
         }

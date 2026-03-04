@@ -25,9 +25,9 @@ function getDB(): PDO {
             $pdo->exec("CREATE DATABASE IF NOT EXISTS pizzaquest");
             $pdo->exec("USE pizzaquest");
 
-            getLogger()->info('Connexion DB réussie');
+            getLogger('db')->info('Connexion DB réussie');
         } catch (PDOException $e) {
-            getLogger()->error('Erreur DB : ' . $e->getMessage());
+            getLogger('db')->error('Erreur DB : ' . $e->getMessage());
             die("Erreur de connexion");
         }
     }

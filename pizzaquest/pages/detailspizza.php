@@ -1,8 +1,7 @@
 <?php define('ROOT', dirname(__DIR__));
-$arr = json_decode($_GET['data'], true);
 $title = 'Details pizza'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/includes/bootstrap.php';
+$arr = json_decode($_GET['data'], true);
 ?>
 
 <div class="container justify-content-center">

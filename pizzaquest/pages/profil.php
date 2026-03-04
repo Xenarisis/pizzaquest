@@ -1,13 +1,17 @@
 <?php define('ROOT', dirname(__DIR__));
-$title = 'profil'; 
+$title = 'profil';
+require_once ROOT . '/includes/header.php';
 
-if (!isset($_SESSION['user'])):
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
+// exit;
+
+if (!isset($_SESSION['user_id'])):
     header('Location: /pages/login.php');
     exit();
 endif;
 
-require_once ROOT . '/includes/header.php';
-require_once ROOT . '/includes/bootstrap.php';
 ?>
 
 <h1>Bienvenue sur votre profil</h1>

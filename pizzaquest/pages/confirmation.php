@@ -1,13 +1,12 @@
 <?php
 define('ROOT', dirname(__DIR__));
 $title = 'command success'; 
+require_once ROOT . '/includes/header.php';
 
-if($_SESSION['success'] != true) {
+if(!isset($_SESSION['success']) || $_SESSION['success'] != true) {
     header('Location: /pages/command.php');
     exit();
 }
-require_once ROOT . '/includes/header.php';
-require_once ROOT . '/includes/bootstrap.php';
 
 ?>
 

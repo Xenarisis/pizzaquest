@@ -2,18 +2,17 @@
 define('ROOT', dirname(__DIR__));
 $title = 'Inscription'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/includes/bootstrap.php';
 
 $_SESSION['newuser'] = true;
 
 $user = array(
-    'id' => $_SESSION['user_id'] ?? uniqid(),
-    'firstname' => $_SESSION['user_firstname'] ?? null,
-    'lastname' => $_SESSION['user_lastname'] ?? null,
-    'email' => $_SESSION['user_email'] ?? null,
-    'adress' => $_SESSION['user_adress'] ?? null,
-    'phone' => $_SESSION['user_phone'] ?? null
-)
+    'id' => null,
+    'firstname' => '',
+    'lastname' => '',
+    'email' => '',
+    'adress' => '',
+    'phone' => ''
+);
 
 ?>
 

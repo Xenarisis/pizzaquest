@@ -2,7 +2,6 @@
 define('ROOT', dirname(__DIR__));
 $title = 'acceuil'; 
 require_once ROOT . '/includes/header.php';
-require_once ROOT . '/includes/bootstrap.php';
 ?>
 <div class="container-fluid ">
     <div class="container-fluid align-items-center p-5">
@@ -18,6 +17,8 @@ require_once ROOT . '/includes/bootstrap.php';
     <div class="row p-5">
         <h2><strong>Les pizzas du moment</strong></h2>
         <?php 
+        echo '<h2>Voici les 3 pizzas les plus populaires du moment :</h2>';
+
         $pdo = getDB();
         $stmt = $pdo->query('SELECT * FROM pizzas');
         $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);

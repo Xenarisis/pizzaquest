@@ -3,18 +3,26 @@ define('ROOT', dirname(__DIR__));
 require_once ROOT . '/includes/bootstrap.php';
 
 $NewUser = $_SESSION['newuser'] ?? false;
+$pdo = getDB();
+
+// echo '<pre>';
+// print_r($pdo);
+// echo '</pre>';
+// exit;
+// die();
 
 if($NewUser) {
-    $_SESSION['user'] = array(
-        'firstname' => $_POST['prenom'] ?? null,
-        'lastname' => $_POST['nom'] ?? null,
-        'email' => $_POST['email'] ?? null,
-        'password' => $_POST['password'] ?? null,
-        'adresse' => $_POST['adresse'] ?? null,
-        'phone' => $_POST['phone'] ?? null
+    $user = array(
+        'id' => null,
+        'firstname' => $_POST['prenom'],
+        'lastname' => $_POST['nom'],
+        'email' => $_POST['email'],
+        'password' => $_POST['MDP'],
+        'adress' => $_POST['adress'],
+        'phone' => $_POST['phone']
     );
 
-    register();
+    register($pdo, $user);
 
     redirect('/pages/profil.php');
 
@@ -22,15 +30,14 @@ if($NewUser) {
     $email = $_POST['email'] ?? null;
     $password = $_POST['password'] ?? null;
 
-    $user = connect_user($email, $password);
+    $userGood = login($pdo, $email, $password);
 
-    if($user['password'] === $password) {
-        $_SESSION['user'] = $user;
+    if($userGood) {
         redirect('/pages/profil.php');
+        exit;
     } else {
-        $_SESSION['error'] = 'Email ou mot de passe incorrect';
-        header('Location: /pages/login.php');
-        exit();
+        $_SESSION['error'] = 'Email ou mot de passe incorrect :: ';
+        redirect('/pages/login.php');
     }
 }
 ?>

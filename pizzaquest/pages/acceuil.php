@@ -17,7 +17,6 @@ require_once ROOT . '/includes/header.php';
     <div class="row p-5">
         <h2><strong>Les pizzas du moment</strong></h2>
         <?php 
-        echo '<h2>Voici les 3 pizzas les plus populaires du moment :</h2>';
 
         $pdo = getDB();
         $stmt = $pdo->query('SELECT * FROM pizzas WHERE is_pizza_du_jour = 1');

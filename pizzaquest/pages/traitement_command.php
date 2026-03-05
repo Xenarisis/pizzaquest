@@ -5,13 +5,6 @@
     $var = $_POST;
 
     $pdo = getDB();
-    $stmt = $pdo->query('SELECT * FROM pizzas');
-    $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // var_dump($var['pizzas']);
-    // var_dump($var['quantities']);
-    // var_dump($_SESSION);
-    // exit;
 
     if(!($var['pizzas'] || $var["livraison"] || $var['telephone'])) {
         $_SESSION['error'] = 'Veuillez remplir tous les champs obligatoires';
@@ -23,22 +16,25 @@
         redirect('/pages/command.php');
     }
 
-    foreach ($var['pizzas'] as $value) {
-        $time = $var['quantities'][$value];
-        if($time == null || $time == 0) {
-            $time = 1;
-        }
-        for ($i=0; $i < $time; $i++) { 
-            $commanded_pizza[] = find_pizza($value, $all_pizzas);
-        }
-    }
+    if(!isset§($_SESSION['is_connected'])) {
 
-    $_SESSION['command'] = array(
-        'pizzas' => $commanded_pizza,
-        'livraison' => $var['livraison'],
-        'adresse' => $var['adresse'],
-        'phone' => $var['phone']
-    );
+        $_SESSION['command'] = array(
+            'livraison' => $var['livraison'],
+            'adresse' => $var['adresse'],
+            'phone' => $var['phone']
+        );
+
+        $stmt = $pdo->prepare("INSERT INTO orders (user_id, pizza_id, quantity, comment, statut) VALUES (:user_id, :pizza_id, :quantity, :comment, :statut)");
+        $result = $stmt->execute(
+            [
+                ':user_id' => $_SESSION['user_id'] ?? null,
+                ':pizza_id' => json_encode($var['pizzas']),
+                ':quantity' => json_encode($var['quantities']),
+                ':comment' => $var['comment'] ?? null,
+                ':statut' => 'en cours'
+            ]
+        );
+    }
 
     $_SESSION['success'] = true;
     redirect('/pages/confirmation.php');

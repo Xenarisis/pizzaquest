@@ -23,7 +23,7 @@
     }
 
     function register(PDO $pdo, array $user): bool {
-        $stmt = $pdo->prepare("INSERT INTO users (id, firstname, lastname, email, password, adress, phone) VALUES (:id, :firstname, :lastname, :email, :password, :adress, :phone)");
+        $stmt = $pdo->prepare("INSERT INTO users (id, firstname, lastname, email, password, adress, phone, role) VALUES (:id, :firstname, :lastname, :email, :password, :adress, :phone, :role)");
         $result = $stmt->execute([
             ':id' => $user['id'],
             ':firstname' => $user['firstname'],
@@ -31,7 +31,8 @@
             ':email' => $user['email'],
             ':password' => password_hash($user['password'], PASSWORD_DEFAULT),
             ':adress' => $user['adress'],
-            ':phone' => $user['phone']
+            ':phone' => $user['phone'],
+            ':role' => $user['role'] ?? 'user'
         ]);
 
         if ($result) {

@@ -22,6 +22,16 @@
             <?php if (!isset($_SESSION['user_id'])): ?>
                 <li class="nav-item"><a class="nav-link" href="/pages/login.php">Login</a></li>
             <?php else: ?>
+                <?php 
+                    $pdo = getDB();
+                    $stmt = $pdo->prepare('SELECT * FROM users WHERE id = :id');
+                    $stmt->execute([':id' => $_SESSION['user_id'] ?? null]);
+                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                    if($user['role'] === 'admin'):
+                    ?>
+                    <li class="nav-item"><a class="nav-link" href="/pages/admin.php">Admin</a></li>
+                    <?php endif; ?>
                 <li class="nav-item"><a class="nav-link" href="/pages/profil.php">Mon profil</a></li>
             <?php endif; ?>
         </ul>

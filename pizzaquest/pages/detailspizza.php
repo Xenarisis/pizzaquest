@@ -12,7 +12,8 @@ $arr = json_decode($_GET['data'], true);
         <h2>Détails pizza</h2>
         <?php 
         echo "<p>- " . $arr['name'] . "</p>";
-        echo "<p>- " . $arr['price'] . "</p>";
+        echo "<p>- " . $arr['price'] . "€ </p>";
+        echo "<p>- " . $arr['description'] . "</p>";
         ?>
     </div>
 </div>

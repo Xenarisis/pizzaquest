@@ -5,12 +5,6 @@ require_once ROOT . '/includes/bootstrap.php';
 $NewUser = $_SESSION['newuser'] ?? false;
 $pdo = getDB();
 
-// echo '<pre>';
-// print_r($pdo);
-// echo '</pre>';
-// exit;
-// die();
-
 if($NewUser) {
     $user = array(
         'id' => null,
@@ -24,7 +18,7 @@ if($NewUser) {
 
     register($pdo, $user);
 
-    redirect('/pages/profil.php');
+    redirect('/pages/login.php');
 
 } else {
     $email = $_POST['email'] ?? null;
@@ -33,6 +27,7 @@ if($NewUser) {
     $userGood = login($pdo, $email, $password);
 
     if($userGood) {
+        $_SESSION['is_connected'] = true;
         redirect('/pages/profil.php');
         exit;
     } else {

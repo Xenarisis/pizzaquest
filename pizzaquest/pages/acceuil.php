@@ -20,18 +20,11 @@ require_once ROOT . '/includes/header.php';
         echo '<h2>Voici les 3 pizzas les plus populaires du moment :</h2>';
 
         $pdo = getDB();
-        $stmt = $pdo->query('SELECT * FROM pizzas');
+        $stmt = $pdo->query('SELECT * FROM pizzas WHERE is_pizza_du_jour = 1');
         $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $index = 0;
-
         foreach($all_pizzas as $value) {
-            if($index >= 3) {
-                break;
-            } else {
                 echo show_pizza($value);
-                $index++;
-            }
         } ?>
     </div>
     <div class="container-fluid align-items-center p-5">

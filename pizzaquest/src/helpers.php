@@ -30,7 +30,7 @@ HTML;
                 <img src="$pizza[image]" class="card-img-top" alt="pizza">
                 <div class="card-body justify-content-center">
                     <p class="card-text m-auto">- $pizza[name]</p>
-                    <p class="card-text m-auto">- $pizza[price]</p>
+                    <p class="card-text m-auto">- $pizza[price] €</p>
                     <p>
                         <a class="btn btn-secondary" href="/pages/detailspizza.php?data=$data">View details &raquo</a>
                     </p>
@@ -54,7 +54,7 @@ HTML;
                     >
                     <label class="form-check-label" for="pizza_$pizza[id]">
                         <strong>$pizza[name]</strong>
-                        - $pizza[price]
+                        - $pizza[price] €
                     </label>
                 </div>
             </div>
@@ -73,6 +73,17 @@ HTML;
 HTML;
     }
 
+    function show_user_info(array $user) {
+        return <<<HTML
+            <div class="card-body">
+                <p><strong>Nom : </strong>$user[lastname]</p>
+                <p><strong>Prénom : </strong>$user[firstname]</p>
+                <p><strong>Email : </strong>$user[email]</p>
+                <p><strong>Téléphone : </strong>$user[phone]</p>
+                <p><strong>Adresse de livraison : </strong>$user[adress]</p>
+            </div>
+HTML;
+    }
 
     function user_info(array $user, $is_new_user = false) {
         $password_part = $is_new_user ? '
@@ -137,12 +148,12 @@ HTML;
                 $password_part
 
                 <div class="mb-3">
-                    <label for="telephone" class="form-label">Téléphone *</label>
+                    <label for="phone" class="form-label">Téléphone *</label>
                     <input 
                         type="tel" 
                         class="form-control" 
-                        id="telephone" 
-                        name="telephone"
+                        id="phone" 
+                        name="phone"
                         value="$user[phone]"
                         placeholder="Veuillez entrer votre numéro de téléphone"
                         required
@@ -175,10 +186,6 @@ HTML;
     // };
 
     function find_pizza($pizza_id, $all_pizzas) {
-        foreach ($all_pizzas as $value) {
-            if($value["id"] == $pizza_id) {
-                return $value;
-            }
-        }
+        
     }
 ?>

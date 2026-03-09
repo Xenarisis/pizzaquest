@@ -8,10 +8,6 @@
         if ($user && password_verify($password, $user['password'])) {
 
             $_SESSION['user_id'] = $user['id'];
-            // echo '<pre>';
-            // print_r($_SESSION);
-            // echo '</pre>';
-            // exit;
     
             getLogger('auth')->info('Login réussi', ['email' => $email]);  // log on -> /../logs/auth.log (little reminder for me)
             return true;

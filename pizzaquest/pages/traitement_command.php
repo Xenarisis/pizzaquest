@@ -16,7 +16,7 @@
         redirect('/pages/command.php');
     }
 
-    if(!isset§($_SESSION['is_connected'])) {
+    if(!isset($_SESSION['is_connected'])) {
 
         $_SESSION['command'] = array(
             'livraison' => $var['livraison'],

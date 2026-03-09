@@ -6,5 +6,5 @@
 
     $_SESSION['user_id'] = $_SESSION['user_id'] ?? null;
 
-    require_once __DIR__ . '/pages/acceuil.php';
+    redirect('/pages/acceuil.php')
 ?>

@@ -18,9 +18,6 @@ if(!isset($_SESSION['success']) || $_SESSION['success'] != true) {
             <a href="/pages/menu.php" class="btn btn-primary">Retour au menu</a>
         </p>
         <h3>Votre commande</h3>
-        <?php foreach($_SESSION['command']['pizzas'] as $value) {
-            echo '<p>- ' . $value['name'] . '</p>';
-        } ?>
     </div>
 </div>
 

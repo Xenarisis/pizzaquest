@@ -82,7 +82,7 @@ if (isset($_SESSION['user_id'])) {
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Prix de la pizza</label>
-                <input type="number" step="0.01" class="form-control" id="price" name="price" required> 
+                <input type="number" class="form-control" id="price" name="price" required> 
             </div>
             <input type="hidden" name="newpizza" value="1">
             <button type="submit" class="btn btn-secondary">Ajouter la pizza </button>
@@ -134,31 +134,32 @@ if (isset($_SESSION['user_id'])) {
 
             <div class="mb-3">
                 <label for="name" class="form-label">Modifier le nom de la pizza</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Modifier l'image de la pizza (lien)</label>
-                <input type="text" class="form-control" id="image" name="image" required>
+                <input type="text" class="form-control" id="image" name="image">
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Modifier la description de la pizza</label>
-                <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Modifier le prix de la pizza</label>
-                <input type="number" step="0.01" class="form-control" id="price" name="price" required> 
+                <input type="number" class="form-control" id="price" name="price"> 
             </div>
 
             <input type="hidden" name="modifpizza" value="1">
             <button type="submit" class="btn btn-secondary">Modifier la pizza</button>
 
             <?php
-                if((isset($_POST['name']) || isset($_POST['description']) || isset($_POST['price'])) && isset($_POST['modifpizza']) && isset($_POST['pizzas']) ) {
-                    $pizza = array (
-                        'name' => $_POST['name'],
-                        'description' => $_POST['description'],
-                        'price' => $_POST['price']
-                    );
+                if((isset($_POST['name']) || isset($_POST['description']) || isset($_POST['price']) || isset($_POST['image'])) && isset($_POST['modifpizza']) && isset($_POST['pizzas']) ) {
+                    $pizza = array (null);
+
+                    if(isset($_POST['name']) && !empty($_POST['name'])) { $pizza['name'] = $_POST['name']; }
+                    if(isset($_POST['description']) && !empty($_POST['description'])) { $pizza['description'] = $_POST['description']; }
+                    if(isset($_POST['price']) && !empty($_POST['price'])) { $pizza['price'] = $_POST['price']; }
+                    if(isset($_POST['image']) && !empty($_POST['image'])) { $pizza['image'] = $_POST['image']; }
 
                     modify_pizza($pdo, $pizza, $_POST['pizzas']);
 

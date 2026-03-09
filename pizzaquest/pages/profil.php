@@ -60,14 +60,13 @@ endif;
         </form>
         <?php 
         if((isset($_POST['firstname']) || isset($_POST['lastname']) || isset($_POST['email']) || isset($_POST['password']) || isset($_POST['adress']) || isset($_POST['phone'])) && isset($_POST['modify_user_info']) ) {
-            $user = array (
-                'firstname' => $_POST['firstname'],
-                'lastname' => $_POST['lastname'],
-                'email' => $_POST['email'],
-                'password' => $_POST['password'],
-                'adress' => $_POST['adress'],
-                'phone' => $_POST['phone']
-            );
+            $user = array (null);
+            if(isset($_POST['firstname']) && !empty($_POST['firstname'])) { $user['firstname'] = $_POST['firstname']; }
+            if(isset($_POST['lastname']) && !empty($_POST['lastname'])) { $user['lastname'] = $_POST['lastname'] ; }
+            if(isset($_POST['email']) && !empty($_POST['email'])) { $user['email'] = $_POST['email'] ; }
+            if(isset($_POST['password']) && !empty($_POST['password'])) { $user['password'] = $_POST['password'] ; }
+            if(isset($_POST['adress']) && !empty($_POST['adress'])) { $user['adress'] = $_POST['adress'] ; }
+            if(isset($_POST['phone']) && !empty($_POST['phone'])) { $user['phone'] = $_POST['phone'] ; }
 
             $pdo = getDB();
 

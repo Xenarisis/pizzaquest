@@ -5,9 +5,9 @@
             <p class="col-md-4 mb-0 text-body-secondary"&copy><strong>chez Marco 2025</strong></p>
 
             <ul class="nav col-md-4 justify-content-end">
-                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/pages/accueil.php">Accueil</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/pages/menu.php">Menus</a></li>
-                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/pages/nous.php">A propos de nous</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/index.php?root=accueil">Accueil</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/index.php?root=menu">Menus</a></li>
+                <li class="nav-item"><a class="nav-link px-2 text-body-secondary" href="/index.php?root=nous">A propos de nous</a></li>
             </ul>
         </footer>
     </div>

@@ -1,6 +1,6 @@
 <?php 
 define('ROOT', dirname(__DIR__));
-$title = 'acceuil'; 
+$title = 'admin'; 
 require_once ROOT . '/includes/header.php';
 
 if (isset($_SESSION['user_id'])) {
@@ -9,19 +9,17 @@ if (isset($_SESSION['user_id'])) {
     $stmt->execute([':id' => $_SESSION['user_id'] ?? null]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($user['role'] !== 'admin') {
-        header('Location: /pages/acceuil.php');
+    if( $user['role'] !== 'admin' || !isset($_SESSION['user_id']) ) {
+        header('Location: /index.php?root=acceuil');
         exit();
     }
 } else {
-    header('Location: /pages/login.php');
+    header('Location: /index.php?root=login');
     exit();
 }
 ?>
 
 <div class="container-fluid ">
-
-
     <div class="container-fluid align-items-center p-5">
         <H2><strong>Modifer la/les pizza(s) du jour</strong></H2>
         <form action="" method="POST">

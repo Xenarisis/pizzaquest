@@ -25,7 +25,7 @@ $user = array(
 <div class="container my-5">
     <h1>Passer une commande</h1>
 
-    <form method="POST" action="/pages/traitement_command.php" class="needs-validation">
+    <form method="POST" action="/src/traitement_command.php" class="needs-validation">
         <div class="card bg-warning bg-opacity-25 mb-4">
             <div class="card-header">
                 <h3>Choisissez vos pizzas</h3>

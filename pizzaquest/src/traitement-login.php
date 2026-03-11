@@ -18,7 +18,7 @@ if($NewUser) {
 
     register($pdo, $user);
 
-    redirect('/pages/login.php');
+    redirect('/index.php?root=login');
 
 } else {
     $email = $_POST['email'] ?? null;
@@ -28,11 +28,11 @@ if($NewUser) {
 
     if($userGood) {
         $_SESSION['is_connected'] = true;
-        redirect('/pages/profil.php');
+        redirect('/index.php?root=profil');
         exit;
     } else {
-        $_SESSION['error'] = 'Email ou mot de passe incorrect :: ';
-        redirect('/pages/login.php');
+        $_SESSION['error'] = 'Email ou mot de passe incorrect';
+        redirect('/index.php?root=login');
     }
 }
 ?>

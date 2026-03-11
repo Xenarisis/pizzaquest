@@ -2,13 +2,8 @@
 $title = 'profil';
 require_once ROOT . '/includes/header.php';
 
-// echo '<pre>';
-// print_r($_SESSION);
-// echo '</pre>';
-// exit;
-
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['is_connected']) || $_SESSION['is_connected'] !== true):
-    header('Location: /pages/login.php');
+    header('Location: /index.php?root=login');
     exit();
 endif;
 
@@ -79,7 +74,7 @@ endif;
     </div>
 
     <div class="d-flex justify-content-center">
-        <a class="nav-link" href="/pages/logout.php">Logout</a>
+        <a class="nav-link" href="/index.php?root=logout">Logout</a>
     </div>
 </div>
 

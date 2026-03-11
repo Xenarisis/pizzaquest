@@ -174,18 +174,4 @@ HTML;
             </div>
 HTML;
     }
-
-    // will add admin part later to add pizzas and etc
-
-    // function add_pizza(string $pizza, string $pizza_price) {
-    //     $all_pizzas[] = array(
-    //         'id' => $pizza,
-    //         'name' => $pizza,
-    //         'price' => $pizza_price.' €'
-    //         );
-    // };
-
-    function find_pizza($pizza_id, $all_pizzas) {
-        
-    }
 ?>

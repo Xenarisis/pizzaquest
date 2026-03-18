@@ -9,15 +9,15 @@ require_once ROOT . '/includes/header.php';
 </div>
 
 <div class="row p-5">
-        <?php
-        $pdo = getDB();
-        $stmt = $pdo->query('SELECT * FROM pizzas');
-        $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    <?php
+    $pdo = getDB();
+    $stmt = $pdo->query('SELECT * FROM pizzas');
+    $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        foreach($all_pizzas as $value) {
-            echo show_pizza($value);
-        } ?>
-    </div>
+    foreach($all_pizzas as $value) {
+        echo show_pizza($value);
+    } ?>
+</div>
 
 <?php require_once ROOT . '/includes/footer.php';
 ?>

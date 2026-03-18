@@ -3,7 +3,7 @@ define('ROOT', dirname(__DIR__));
 $title = 'Logout'; 
 require_once ROOT . '/includes/header.php';
 
-$_SESSION['user_id'] = null;
+unset($_SESSION['user_id']);
 
 // some code after to disconnect the user of it's account
 ?>
@@ -13,7 +13,7 @@ $_SESSION['user_id'] = null;
         <h3 class="alert-heading">Compte bien déconnecté</h3>
         <p>Vous vous êtes déconnecté de votre compte si toutefois vous voulez vous reconnecter n'hésitez pas a passer pas la page login</p>
         <p class="mb-0">
-            <a href="/pages/acceuil.php" class="btn btn-primary">Retour a l'acceuil</a>
+            <a href="/index.php?root=acceuil" class="btn btn-primary">Retour a l'acceuil</a>
         </p>
     </div>
 </div>

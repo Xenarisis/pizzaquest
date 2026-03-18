@@ -28,7 +28,7 @@ $user = array(
 <div class="container my-5">
     <h2 class="m-b-auto">Veuillez vous inscrire :</h2>
 
-    <form method="POST" action="/pages/traitement-login.php" class="needs-validation">
+    <form method="POST" action="/src/traitement-login.php" class="needs-validation">
         <div class="card bg-warning bg-opacity-25 mb-4">
             <?= user_info($user, true);?>
         </div>

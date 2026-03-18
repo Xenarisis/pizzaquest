@@ -1,6 +1,6 @@
 <?php 
 define('ROOT', dirname(__DIR__));
-$title = 'acceuil'; 
+$title = 'admin'; 
 require_once ROOT . '/includes/header.php';
 
 if (isset($_SESSION['user_id'])) {
@@ -9,19 +9,46 @@ if (isset($_SESSION['user_id'])) {
     $stmt->execute([':id' => $_SESSION['user_id'] ?? null]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if($user['role'] !== 'admin') {
-        header('Location: /pages/acceuil.php');
+    if( $user['role'] !== 'admin' || !isset($_SESSION['user_id']) ) {
+        header('Location: /index.php?root=acceuil');
         exit();
     }
 } else {
-    header('Location: /pages/login.php');
+    header('Location: /index.php?root=login');
     exit();
 }
 ?>
 
+<div class="container-fluid mt-5 pt-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+            <th scope="col">id</th>
+            <th scope="col">nom</th>
+            <th scope="col">prix</th>
+            <th scope="col">description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+                $pdo = getDB();
+                $stmt = $pdo->query('SELECT * FROM pizzas');
+                $all_pizzas = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach($all_pizzas as $pizza) {
+                    echo   "<tr>
+                                <th scope=\"row\">$pizza[id]</th>
+                                <td>$pizza[name]</td>
+                                <td>$pizza[price] €</td>
+                                <td>$pizza[description]</td>
+                            </tr>";
+                }
+            ?>
+        </tbody>
+    </table>
+</div>
+
 <div class="container-fluid ">
-
-
     <div class="container-fluid align-items-center p-5">
         <H2><strong>Modifer la/les pizza(s) du jour</strong></H2>
         <form action="" method="POST">

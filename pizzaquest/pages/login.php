@@ -16,7 +16,7 @@ $_SESSION['newuser'] = false;
 </div>
 
 <div class="container-fluid my-5">
-    <form action="/pages/traitement-login.php" method="POST">
+    <form action="/src/traitement-login.php" method="POST">
         <div class="mb-3">
             <label for="email" class="form-label">Email address</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="Veuillez rentrer votre adresse email" required>
@@ -27,7 +27,7 @@ $_SESSION['newuser'] = false;
             <input type="submit" class="btn btn-warning mt-3" value="Login">
         </div>
     </form>
-    <p><a class="nav-link" href="/pages/logNewUser.php">if you don't have any account: click here !</a></p>
+    <p><a class="nav-link" href="/index.php?root=logNewUser">if you don't have any account: click here !</a></p>
 </div>
 
 <?php require_once ROOT . '/includes/footer.php'; ?>

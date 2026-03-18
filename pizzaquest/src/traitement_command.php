@@ -1,6 +1,6 @@
 <?php 
     define('ROOT', dirname(__DIR__));
-    require_once ROOT . '/includes/bootstrap.php';
+    require_once ROOT . '/includes/init.php';
 
     $var = $_POST;
 
@@ -18,20 +18,20 @@
 
     $_SESSION['command'] = array(
         'livraison' => $var['livraison'],
-        'adresse' => $var['adresse'],
+        'adress' => $var['adress'],
         'phone' => $var['phone']
     );
 
     $stmt = $pdo->prepare("INSERT INTO orders (user_id, pizza_id, quantity, comment, statut) VALUES (:user_id, :pizza_id, :quantity, :comment, :statut)");
-    $result = $stmt->execute(
-        [
-            ':user_id' => $_SESSION['user_id'] ?? null,
-            ':pizza_id' => json_encode($var['pizzas']),
-            ':quantity' => json_encode($var['quantities']),
-            ':comment' => $var['comment'] ?? null,
-            ':statut' => 'en cours'
-        ]
-    );
+        $result = $stmt->execute(
+            [
+                ':user_id' => $_SESSION['user_id'] ?? 0,
+                ':pizza_id' => json_encode($var['pizzas']),
+                ':quantity' => json_encode($var['quantities']),
+                ':comment' => $var['comment'] ?? '',
+                ':statut' => 'en cours'
+            ]
+        );
 
     $_SESSION['success'] = true;
     redirect('/index.php?root=confirmation');

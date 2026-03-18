@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/includes/bootstrap.php';
+    require_once __DIR__ . '/includes/init.php';
 
     $allowed = ['nous', 'acceuil', 'command', 'profil', 'login', 'logout', 'logNewUser', 'menu', 'detailspizza', 'confirmation'];
     if(isset($_SESSION['user_id'])) {

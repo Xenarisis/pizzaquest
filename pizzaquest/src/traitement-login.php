@@ -1,6 +1,6 @@
 <?php 
 define('ROOT', dirname(__DIR__));
-require_once ROOT . '/includes/bootstrap.php';
+require_once ROOT . '/includes/init.php';
 
 $NewUser = $_SESSION['newuser'] ?? false;
 $pdo = getDB();
